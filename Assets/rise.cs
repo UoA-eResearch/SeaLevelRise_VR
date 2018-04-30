@@ -25,9 +25,11 @@ public class rise : MonoBehaviour {
 
         ocean = GameObject.Find("Ocean");
 
-        setSeaLevelAtDate("1/01/2100");
+        StartCoroutine(animate());
+        //setSeaLevelAtDate("1/01/2100");
     }
 
+    /*
     void setSeaLevelAtDate(string timeString)
     {
         float seaLevel;
@@ -51,9 +53,21 @@ public class rise : MonoBehaviour {
             }
         }
     }
+    */
+
+
+    IEnumerator animate() {
+        for (var pos = 0; pos < dataArray.GetLength(0) - 1; pos++) {
+            yield return new WaitForSeconds(2.0F);
+            var seaLevel = float.Parse(dataArray[pos, 1]);
+            ocean.transform.position = new Vector3(0, seaLevel * 0.01F, 0);
+        }
+    }
+
+
 
     // Update is called once per frame
     void Update () {
-        //setSeaLevelAtDate(date);
+        
 	}
 }

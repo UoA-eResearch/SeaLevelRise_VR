@@ -467,7 +467,6 @@ GameObject:
   m_Component:
   - component: {fileID: 440068}
   - component: {fileID: 2024682}
-  - component: {fileID: 11455050}
   - component: {fileID: 11456718}
   - component: {fileID: 9235158}
   m_Layer: 0
@@ -654,7 +653,6 @@ GameObject:
   - component: {fileID: 2075554}
   - component: {fileID: 12427038}
   - component: {fileID: 11471116}
-  - component: {fileID: 11447852}
   m_Layer: 0
   m_Name: Camera (eye)
   m_TagString: MainCamera
@@ -1832,8 +1830,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149878}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalRotation: {x: 0.014918715, y: 0.93879825, z: -0.040988833, w: 0.34169465}
+  m_LocalPosition: {x: -21.46, y: 3.24, z: 25.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 402380}
@@ -1841,7 +1839,7 @@ Transform:
   - {fileID: 440068}
   m_Father: {fileID: 458328}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5, y: 140, z: 0}
 --- !u!4 &496348
 Transform:
   m_ObjectHideFlags: 1
@@ -1890,7 +1888,7 @@ Camera:
   m_GameObject: {fileID: 153214}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -1899,14 +1897,14 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1
+  far clip plane: 9999999
   field of view: 60
   orthographic: 0
   orthographic size: 1
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2143,7 +2141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NaviBase: {fileID: 5428150}
   ThrustDirection: {x: 60, y: 0, z: 0}
-  ThrustForce: 8
+  ThrustForce: 2
   ShowTrustMockup: 1
   ThrustMockup: {fileID: 171466}
 --- !u!114 &11435380
@@ -2163,17 +2161,6 @@ MonoBehaviour:
   verbose: 0
   createComponents: 1
   updateDynamically: 1
---- !u!114 &11447852
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5be45115742b07478e21c85fcc233ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11448476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2204,17 +2191,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: -1
   origin: {fileID: 0}
---- !u!114 &11455050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 153214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be96d45fe21847a4a805d408a8015c84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11456718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2321,7 +2297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NaviBase: {fileID: 5428150}
   ThrustDirection: {x: 60, y: 0, z: 0}
-  ThrustForce: 8
+  ThrustForce: 2
   ShowTrustMockup: 1
   ThrustMockup: {fileID: 171466}
 --- !u!124 &12427038

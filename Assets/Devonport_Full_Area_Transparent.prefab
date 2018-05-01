@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4197933976235724}
   - component: {fileID: 95344299764278774}
   - component: {fileID: 114182201957951956}
+  - component: {fileID: 114537312688165712}
   m_Layer: 0
   m_Name: Devonport_Full_Area_Transparent
   m_TagString: Untagged
@@ -1113,3 +1114,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseAnimation: 0
+--- !u!114 &114537312688165712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1057255722174198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5010fc5ca16e4624caf18a9a796f29f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linearMapping: {fileID: 0}

@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 
     void ViveControl(int controllerId)
     {
+        /*
         var controller = SteamVR_Controller.Input(controllerId);
         if (controller.GetPress(SteamVR_Controller.ButtonMask.Trigger))
         {
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
                 scale = .98f;
             }
             transform.localScale *= scale;
-        }
+        }*/
     }
 
     void Update()

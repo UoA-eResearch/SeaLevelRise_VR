@@ -33,9 +33,13 @@ public class Slider : MonoBehaviour
         if (currentLinearMapping != linearMapping.value)
         {
             currentLinearMapping = linearMapping.value;
+            Debug.Log("val: " + currentLinearMapping);
 
-            var mappedToPH = (currentLinearMapping - 0.0f) / (1.0f - 0.0f) * (9.0f - 3.0f) + 3.0f;
-            sliderValue = Mathf.RoundToInt(mappedToPH);
+            var mappedToDecade = (currentLinearMapping - 0.0f) / (1.0f - 0.0f) * (2150.0f - 2000.0f) + 2000.0f;
+            sliderValue = Mathf.RoundToInt(mappedToDecade);
+            //sliderValue = Mathf.RoundToInt(mappedToDecade / 10) * 10;
+
+            Debug.Log("Year: " + sliderValue);
             switch (sliderValue)
             {
 
@@ -54,7 +58,8 @@ public class Slider : MonoBehaviour
                 case 3:
                     sliderText.text = "Value: low";
                     break;
-
+                default:
+                    break;
             }
         }
     }

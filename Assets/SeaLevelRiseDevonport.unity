@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4839748, g: 0.57572186, b: 0.6801979, a: 1}
+  m_IndirectSpecularColor: {r: 0.48396918, g: 0.5757184, b: 0.6801955, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -151,16 +151,10 @@ Prefab:
         type: 2}
       propertyPath: linearMapping
       value: 
-      objectReference: {fileID: 248594008}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92809b207dc97994294a0e49169cd3b0, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &248594008 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114213727908664720, guid: 732217c6896c19c48a8e306488cd2260,
-    type: 2}
-  m_PrefabInternal: {fileID: 506755501}
-  m_Script: {fileID: 11500000, guid: 46f8e9e70f68ee3418ad85992778c116, type: 3}
 --- !u!1 &301066489
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,51 +475,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &506755501
+--- !u!1001 &552721578
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4252476835045630, guid: 732217c6896c19c48a8e306488cd2260, type: 2}
+    - target: {fileID: 4557576373271030, guid: 8db20a5797625344080d13929b6c2b05, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4252476835045630, guid: 732217c6896c19c48a8e306488cd2260, type: 2}
+    - target: {fileID: 4557576373271030, guid: 8db20a5797625344080d13929b6c2b05, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4252476835045630, guid: 732217c6896c19c48a8e306488cd2260, type: 2}
+    - target: {fileID: 4557576373271030, guid: 8db20a5797625344080d13929b6c2b05, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4252476835045630, guid: 732217c6896c19c48a8e306488cd2260, type: 2}
+    - target: {fileID: 4557576373271030, guid: 8db20a5797625344080d13929b6c2b05, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4252476835045630, guid: 732217c6896c19c48a8e306488cd2260, type: 2}
+    - target: {fileID: 4557576373271030, guid: 8db20a5797625344080d13929b6c2b05, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4252476835045630, guid: 732217c6896c19c48a8e306488cd2260, type: 2}
+    - target: {fileID: 4557576373271030, guid: 8db20a5797625344080d13929b6c2b05, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4252476835045630, guid: 732217c6896c19c48a8e306488cd2260, type: 2}
+    - target: {fileID: 4557576373271030, guid: 8db20a5797625344080d13929b6c2b05, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4252476835045630, guid: 732217c6896c19c48a8e306488cd2260, type: 2}
+    - target: {fileID: 4557576373271030, guid: 8db20a5797625344080d13929b6c2b05, type: 2}
       propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1786719966403220, guid: 732217c6896c19c48a8e306488cd2260, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 732217c6896c19c48a8e306488cd2260, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 8db20a5797625344080d13929b6c2b05, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &784512401
 GameObject:
@@ -754,3 +744,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1628864016}
+--- !u!1 &1983645543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1983645544}
+  - component: {fileID: 1983645545}
+  m_Layer: 0
+  m_Name: '[SteamVR]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1983645544
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1983645543}
+  m_LocalRotation: {x: 0.014918715, y: 0.93879825, z: -0.040988833, w: 0.34169465}
+  m_LocalPosition: {x: -21.46, y: 3.24, z: 25.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1983645545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1983645543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e979227f3384fac4b8ca0b3550bf005c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseGameWhenDashboardIsVisible: 1
+  lockPhysicsUpdateRateToRenderFrequency: 1
+  externalCamera: {fileID: 0}
+  externalCameraConfigPath: externalcamera.cfg
+  trackingSpace: 1

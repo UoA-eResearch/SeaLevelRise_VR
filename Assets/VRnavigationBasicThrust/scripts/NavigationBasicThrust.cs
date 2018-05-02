@@ -23,7 +23,7 @@ public class NavigationBasicThrust : MonoBehaviour
         var device = SteamVR_Controller.Input((int)trackedObj.index);
 
         // add force
-        if (device.GetTouch(SteamVR_Controller.ButtonMask.Trigger)) {
+        if (device.GetPress(SteamVR_Controller.ButtonMask.Touchpad)) {
             tempVector = Quaternion.Euler(ThrustDirection) * Vector3.forward;
             NaviBase.AddForce(transform.rotation * tempVector * ThrustForce);
             NaviBase.maxAngularVelocity = 2f;
@@ -31,11 +31,11 @@ public class NavigationBasicThrust : MonoBehaviour
 
         // show trust mockup
         if (ShowTrustMockup && ThrustMockup != null) {
-            if (attachedObject == null && device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger)) {
+            if (attachedObject == null && device.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad)) {
                 attachedObject = (GameObject)GameObject.Instantiate(ThrustMockup, Vector3.zero, Quaternion.identity);
                 attachedObject.transform.SetParent(this.transform, false);
                 attachedObject.transform.Rotate(ThrustDirection);
-            } else if (attachedObject != null && device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger)) {
+            } else if (attachedObject != null && device.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad)) {
                 Destroy(attachedObject);
             }
         }

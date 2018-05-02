@@ -29,8 +29,8 @@ public class rise : MonoBehaviour {
         }
 
         ocean = GameObject.Find("Ocean");
-        dateText = GameObject.Find("Date");
-        seaLevelText = GameObject.Find("SeaLevel");
+        dateText = GameObject.Find("DateDyn");
+        seaLevelText = GameObject.Find("SeaLevelDyn");
 
         InvokeRepeating("animate", 2.0f, 1);
     }

@@ -2878,7 +2878,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 9999999
+  far clip plane: 10000000
   field of view: 60
   orthographic: 0
   orthographic size: 1
@@ -2893,7 +2893,7 @@ Camera:
   m_HDR: 0
   m_AllowMSAA: 1
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 0
+  m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
@@ -3763,7 +3763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f8e9e70f68ee3418ad85992778c116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0.2
+  value: 0.8
 --- !u!114 &114384964428090970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3841,7 +3841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f8e9e70f68ee3418ad85992778c116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0.2
+  value: 0.8
 --- !u!114 &114497490481651464
 MonoBehaviour:
   m_ObjectHideFlags: 1

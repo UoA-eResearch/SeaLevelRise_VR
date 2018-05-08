@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class rise : MonoBehaviour {
+public class Rise : MonoBehaviour {
 
     private string[,] dataArray;
     private GameObject ocean;
@@ -12,10 +10,11 @@ public class rise : MonoBehaviour {
     private GameObject dateText;
     private GameObject seaLevelText;
     private int pos = 0;
-    public bool pauseAnimation;
+    public bool pauseAnimation = false;
 
     // Use this for initialization
     void Start() {
+        
         var dataFile = Resources.Load<TextAsset>("Data");
 
         string[] fileContent = dataFile.text.Split('\n');
@@ -37,6 +36,7 @@ public class rise : MonoBehaviour {
 
 
     void animate() {
+        
         if (!pauseAnimation) {
 
             if (pos >= dataArray.GetLength(0))
@@ -58,6 +58,23 @@ public class rise : MonoBehaviour {
         }
     }
 
+    
+    public void setSeaLevelAtDate(string timeString)
+    {
+        float seaLevel;
+        for (var pos = 0; pos < dataArray.GetLength(0)-1; pos++)
+        {
+            Debug.Log(pos);
+            var strVal1 = dataArray[pos, 0].ToString().Split('/');
+            var strVal2 = dataArray[pos + 1, 0].Split('/');
+            var splitTime = timeString.Split('/');
+            if (Int32.Parse(strVal1[2]) <= Int32.Parse(splitTime[2]) && Int32.Parse(strVal2[2]) > Int32.Parse(splitTime[2]))
+            {
+                seaLevel = float.Parse(dataArray[pos, 1]);
+                ocean.transform.position = new Vector3(0, seaLevel * 0.01F, 0);
+            }
+        }
+    }
 
 
     // Update is called once per frame

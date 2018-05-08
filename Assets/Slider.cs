@@ -24,6 +24,7 @@ public class Slider : MonoBehaviour
 
         sliderCanvas = GameObject.Find("pHCanvas");
         sliderText = sliderCanvas.GetComponentInChildren<Text>();
+        
     }
 
 
@@ -32,15 +33,25 @@ public class Slider : MonoBehaviour
     {
         if (currentLinearMapping != linearMapping.value)
         {
+            GetComponentInParent<Rise>().pauseAnimation = true;
+
             currentLinearMapping = linearMapping.value;
-            Debug.Log("val: " + currentLinearMapping);
 
             var mappedToDecade = (currentLinearMapping - 0.0f) / (1.0f - 0.0f) * (2150.0f - 2000.0f) + 2000.0f;
             sliderValue = Mathf.RoundToInt(mappedToDecade);
             //sliderValue = Mathf.RoundToInt(mappedToDecade / 10) * 10;
 
             sliderText.text = "Year: " + sliderValue;
+
+            GetComponentInParent<Rise>().setSeaLevelAtDate(getDateString());
         }
+    }
+
+    private string getDateString() {
+
+        var dateString = "1/01/" + sliderValue;
+
+        return dateString;
     }
 
     public int GetPhValue()

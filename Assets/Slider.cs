@@ -39,28 +39,7 @@ public class Slider : MonoBehaviour
             sliderValue = Mathf.RoundToInt(mappedToDecade);
             //sliderValue = Mathf.RoundToInt(mappedToDecade / 10) * 10;
 
-            Debug.Log("Year: " + sliderValue);
-            switch (sliderValue)
-            {
-
-                case 9:
-                    sliderText.text = "Value: high";
-                    break;
-
-                case 8:
-                case 7:
-                case 6:
-                case 5:
-                case 4:
-                    sliderText.text = "Value: " + sliderValue;
-                    break;
-
-                case 3:
-                    sliderText.text = "Value: low";
-                    break;
-                default:
-                    break;
-            }
+            sliderText.text = "Year: " + sliderValue;
         }
     }
 

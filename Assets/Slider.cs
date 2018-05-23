@@ -11,8 +11,7 @@ public class Slider : MonoBehaviour
     public LinearMapping linearMapping;
     private float currentLinearMapping = float.NaN;
     private int sliderValue;
-    private GameObject sliderCanvas;
-    private Text sliderText;
+    private GameObject dateText;
 
     //-------------------------------------------------
     void Awake()
@@ -21,10 +20,9 @@ public class Slider : MonoBehaviour
         {
             linearMapping = GetComponent<LinearMapping>();
         }
-
-        sliderCanvas = GameObject.Find("pHCanvas");
-        sliderText = sliderCanvas.GetComponentInChildren<Text>();
         
+        dateText = GameObject.Find("DateDyn");
+
     }
 
 
@@ -41,7 +39,8 @@ public class Slider : MonoBehaviour
             sliderValue = Mathf.RoundToInt(mappedToDecade);
             //sliderValue = Mathf.RoundToInt(mappedToDecade / 10) * 10;
 
-            sliderText.text = "Year: " + sliderValue;
+            dateText.GetComponent<Text>().text = "";
+            dateText.GetComponent<Text>().text = "Year: " + sliderValue;
 
             GetComponentInParent<Rise>().setSeaLevelAtDate(getDateString());
         }
@@ -60,6 +59,6 @@ public class Slider : MonoBehaviour
     }
     public string GetPhValueStr()
     {
-        return sliderText.text;
+        return dateText.GetComponent<Text>().text;
     }
 }

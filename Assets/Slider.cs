@@ -31,13 +31,13 @@ public class Slider : MonoBehaviour
     {
         if (currentLinearMapping != linearMapping.value)
         {
-            GetComponentInParent<Rise>().pauseAnimation = true;
+            //GetComponentInParent<Rise>().pauseAnimation = true;
 
             currentLinearMapping = linearMapping.value;
 
             var mappedToDecade = (currentLinearMapping - 0.0f) / (1.0f - 0.0f) * (2150.0f - 2000.0f) + 2000.0f;
-            sliderValue = Mathf.RoundToInt(mappedToDecade);
-            //sliderValue = Mathf.RoundToInt(mappedToDecade / 10) * 10;
+            //sliderValue = Mathf.RoundToInt(mappedToDecade);
+            sliderValue = Mathf.RoundToInt(mappedToDecade / 10) * 10;
 
             dateText.GetComponent<Text>().text = "";
             dateText.GetComponent<Text>().text = "Year: " + sliderValue;

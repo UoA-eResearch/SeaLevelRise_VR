@@ -10,11 +10,12 @@ public class Rise : MonoBehaviour {
     private GameObject dateText;
     private GameObject seaLevelText;
     private int pos = 0;
-    public bool pauseAnimation = false;
+    public bool pauseAnimation;
 
     // Use this for initialization
     void Start() {
-        
+
+        pauseAnimation = false;
         var dataFile = Resources.Load<TextAsset>("Data");
 
         string[] fileContent = dataFile.text.Split('\n');
@@ -58,6 +59,15 @@ public class Rise : MonoBehaviour {
         }
     }
 
+    public void toggleAnimation(bool enabled) {
+        if (enabled)
+        {
+            pauseAnimation = false;
+        }
+        else {
+            pauseAnimation = true;
+        }
+    }
     
     public void setSeaLevelAtDate(string timeString)
     {

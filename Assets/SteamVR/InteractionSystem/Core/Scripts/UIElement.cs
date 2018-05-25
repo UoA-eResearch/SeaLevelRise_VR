@@ -33,15 +33,37 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void OnHandHoverBegin( Hand hand )
 		{
-            GameObject.Find("devonport_model").GetComponent<Rise>().toggleBut();
-        }
+			currentHand = hand;
+			InputModule.instance.HoverBegin( gameObject );
+			ControllerButtonHints.ShowButtonHint( hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger );
+		}
 
+
+		//-------------------------------------------------
+		private void OnHandHoverEnd( Hand hand )
+		{
+            Debug.Log(gameObject);
+			InputModule.instance.HoverEnd( gameObject );
+			ControllerButtonHints.HideButtonHint( hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger );
+			currentHand = null;
+		}
+
+
+		//-------------------------------------------------
+		private void HandHoverUpdate( Hand hand )
+		{
+			if ( hand.GetStandardInteractionButtonDown() )
+			{
+				InputModule.instance.Submit( gameObject );
+				ControllerButtonHints.HideButtonHint( hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger );
+			}
+		}
 
 
 		//-------------------------------------------------
 		private void OnButtonClick()
 		{
-            onHandClick.Invoke( currentHand );
+			onHandClick.Invoke( currentHand );
 		}
 	}
 

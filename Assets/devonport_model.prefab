@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 95919245892992102}
   - component: {fileID: 114156245415578048}
   - component: {fileID: 114122179141671794}
-  - component: {fileID: 114579256035245348}
+  - component: {fileID: 114186706324708058}
   m_Layer: 0
   m_Name: devonport_model
   m_TagString: Untagged
@@ -1209,11 +1209,11 @@ MonoBehaviour:
   clipPlaneOffset: 0.07
   reflectLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967256
   refractLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &114579256035245348
+    m_Bits: 0
+--- !u!114 &114186706324708058
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1224,4 +1224,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed45747bcc9434f468b53d865ffe490e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseAnimation: 1
+  pauseAnimation: 0

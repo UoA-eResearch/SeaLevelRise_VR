@@ -11,6 +11,7 @@ public class Rise : MonoBehaviour {
     private GameObject seaLevelText;
     private int pos = 0;
     public bool pauseAnimation;
+    public Button but;
 
     // Use this for initialization
     void Start() {
@@ -68,7 +69,19 @@ public class Rise : MonoBehaviour {
             pauseAnimation = true;
         }
     }
-    
+
+    public void toggleBut()
+    {
+        if (pauseAnimation)
+        {
+            pauseAnimation = false;
+        }
+        else
+        {
+            pauseAnimation = true;
+        }
+    }
+
     public void setSeaLevelAtDate(string timeString)
     {
         float seaLevel = 0.0F;

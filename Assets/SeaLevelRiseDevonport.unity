@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 815588848}
-  m_IndirectSpecularColor: {r: 0.4839748, g: 0.57572186, b: 0.6801979, a: 1}
+  m_IndirectSpecularColor: {r: 0.48396918, g: 0.5757184, b: 0.6801955, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -730,7 +730,7 @@ Prefab:
       objectReference: {fileID: 21298691}
     - target: {fileID: 1257248662449806, guid: 2e1be5d350cb8a240b9d2c25c4e1855b, type: 2}
       propertyPath: m_Name
-      value: HintCanvas
+      value: ToggleCanv
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e1be5d350cb8a240b9d2c25c4e1855b, type: 2}

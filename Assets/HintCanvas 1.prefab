@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 114889877736396378}
   - component: {fileID: 114260670244693164}
   m_Layer: 0
-  m_Name: Button_ButtonHints
+  m_Name: AnimationToggle_But
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Button Hints
+  m_Text: Toggle Animation
 --- !u!114 &114179377266801434
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -11,7 +11,6 @@ public class Rise : MonoBehaviour {
     private GameObject seaLevelText;
     private int pos = 0;
     public bool pauseAnimation;
-    public Button but;
 
     // Use this for initialization
     void Start() {
@@ -57,16 +56,6 @@ public class Rise : MonoBehaviour {
             seaLevelText.GetComponent<Text>().text = seaLevel;
 
             pos++;
-        }
-    }
-
-    public void toggleAnimation(bool enabled) {
-        if (enabled)
-        {
-            pauseAnimation = false;
-        }
-        else {
-            pauseAnimation = true;
         }
     }
 

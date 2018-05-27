@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 95919245892992102}
   - component: {fileID: 114156245415578048}
   - component: {fileID: 114122179141671794}
-  - component: {fileID: 114186706324708058}
+  - component: {fileID: 114119117803058852}
   m_Layer: 0
   m_Name: devonport_model
   m_TagString: Untagged
@@ -1169,6 +1169,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114119117803058852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1352510858489162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee66d94f686c4943b853a1102f2fc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseAnimation: 0
 --- !u!114 &114122179141671794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1213,15 +1225,3 @@ MonoBehaviour:
   refractLayers:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &114186706324708058
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1352510858489162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed45747bcc9434f468b53d865ffe490e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseAnimation: 0

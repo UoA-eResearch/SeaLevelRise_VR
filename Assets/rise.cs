@@ -1,8 +1,10 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Valve.VR.InteractionSystem;
 
-public class Rise : MonoBehaviour {
+public class Rise : MonoBehaviour
+{
 
     private string[,] dataArray;
     private GameObject ocean;
@@ -11,11 +13,18 @@ public class Rise : MonoBehaviour {
     private GameObject seaLevelText;
     private int pos = 0;
     public bool pauseAnimation;
+    public Button toggleButton;
+    public LinearMapping linearMapping;
 
-    // Use this for initialization
-    void Start() {
-
+    
+    void Start()
+    {
+        ocean = GameObject.Find("Ocean");
+        dateText = GameObject.Find("DateDyn");
+        seaLevelText = GameObject.Find("SeaLevelDyn");
         pauseAnimation = false;
+
+        //Load sea level data and dates from file and store in data array
         var dataFile = Resources.Load<TextAsset>("Data");
 
         string[] fileContent = dataFile.text.Split('\n');
@@ -28,18 +37,17 @@ public class Rise : MonoBehaviour {
             dataArray[pos, 1] = content[1];
         }
 
-        ocean = GameObject.Find("Ocean");
-        dateText = GameObject.Find("DateDyn");
-        seaLevelText = GameObject.Find("SeaLevelDyn");
-
-        InvokeRepeating("animate", 2.0f, 1);
+        InvokeRepeating("Animate", 2.0f, 1);
     }
 
+    /*
+    Animate the sea level rise automatically
+    */
+    void Animate()
+    {
 
-    void animate() {
-        
-        if (!pauseAnimation) {
-
+        if (!pauseAnimation)
+        {
             if (pos >= dataArray.GetLength(0))
             {
                 pos = 0;
@@ -47,65 +55,77 @@ public class Rise : MonoBehaviour {
 
             var date = dataArray[pos, 0];
             var seaLevel = dataArray[pos, 1];
-
-            ocean.transform.position = new Vector3(0, float.Parse(seaLevel) * 0.01F, 0);
-
-            dateText.GetComponent<Text>().text = "";
-            dateText.GetComponent<Text>().text = date;
-            seaLevelText.GetComponent<Text>().text = "";
-            seaLevelText.GetComponent<Text>().text = seaLevel;
+            
+            float mappedToRange0_1 = (float.Parse(date.Split('/')[2]) - 2000.0f) / (2150.0f - 2000.0f) * (1.0f - 0.0f) + 0.0f;
+            
+            linearMapping.value = mappedToRange0_1;
 
             pos++;
         }
     }
 
-    public void toggleBut()
+    /*
+    Pause and Resume automatic animation of sea level rise
+    */
+    public void ToggleBut()
     {
         if (pauseAnimation)
         {
             pauseAnimation = false;
+            toggleButton.GetComponentInChildren<Text>().text = "";
+            toggleButton.GetComponentInChildren<Text>().text = "Resume Animation";
         }
         else
         {
             pauseAnimation = true;
+            toggleButton.GetComponentInChildren<Text>().text = "";
+            toggleButton.GetComponentInChildren<Text>().text = "Pause Animation";
         }
     }
 
-    public void setSeaLevelAtDate(string timeString)
+    /*
+    Animate the sea level rise automatically
+    */
+    public void SetSeaLevelAtDate(string timeString)
     {
         float seaLevel = 0.0F;
-        for (var pos = 0; pos < dataArray.GetLength(0); pos++)
+        for (var position = 0; position < dataArray.GetLength(0); position++)
         {
-            Debug.Log(pos + " and " + timeString);
-            var strVal1 = dataArray[pos, 0].ToString().Split('/');
-
-            if (pos == (dataArray.GetLength(0)-1) && Int32.Parse(timeString.Split('/')[2]) >= Int32.Parse(strVal1[2])) {
-
-                seaLevel = float.Parse(dataArray[pos, 1]);
-                ocean.transform.position = new Vector3(0, seaLevel * 0.01F, 0);
-
-                seaLevelText.GetComponent<Text>().text = "";
-                seaLevelText.GetComponent<Text>().text = seaLevel.ToString();
-                Debug.Log(seaLevel.ToString() + " here " + timeString);
-                break;
-            }
             
-            var strVal2 = dataArray[pos + 1, 0].Split('/');
-            var splitTime = timeString.Split('/');
-            if (Int32.Parse(strVal1[2]) <= Int32.Parse(splitTime[2]) && Int32.Parse(strVal2[2]) > Int32.Parse(splitTime[2]))
+            var strVal1 = dataArray[position, 0].ToString().Split('/');
+
+            if (position == (dataArray.GetLength(0) - 1) && Int32.Parse(timeString.Split('/')[2]) >= Int32.Parse(strVal1[2]))
             {
-                seaLevel = float.Parse(dataArray[pos, 1]);
+                seaLevel = float.Parse(dataArray[position, 1]);
                 ocean.transform.position = new Vector3(0, seaLevel * 0.01F, 0);
 
                 seaLevelText.GetComponent<Text>().text = "";
                 seaLevelText.GetComponent<Text>().text = seaLevel.ToString();
             }
-            
+            else {
+                var strVal2 = dataArray[position + 1, 0].Split('/');
+                var splitTime = timeString.Split('/');
+                if (Int32.Parse(strVal1[2]) <= Int32.Parse(splitTime[2]) && Int32.Parse(strVal2[2]) > Int32.Parse(splitTime[2]))
+                {
+                    seaLevel = float.Parse(dataArray[position, 1]);
+                    ocean.transform.position = new Vector3(0, seaLevel * 0.01F, 0);
+
+                    seaLevelText.GetComponent<Text>().text = "";
+                    seaLevelText.GetComponent<Text>().text = seaLevel.ToString();
+
+                    break;
+                }
+            }
+
         }
     }
 
 
-    // Update is called once per frame
-    void Update () {
-	}
+    /*
+    Keep track of which position/index in the data array is currently shown as sea level and date
+    */
+    public void SetCurrentPosition(int currentPos) {
+        pos = currentPos;
+    }
+    
 }

@@ -7,9 +7,9 @@ public class Rise : MonoBehaviour
 {
 
     private string[,] dataArray;
+    private string[] dateArray;
     private GameObject ocean;
     private string date;
-    private GameObject dateText;
     private GameObject seaLevelText;
     private int pos = 0;
     public bool pauseAnimation;
@@ -20,7 +20,6 @@ public class Rise : MonoBehaviour
     void Start()
     {
         ocean = GameObject.Find("Ocean");
-        dateText = GameObject.Find("DateDyn");
         seaLevelText = GameObject.Find("SeaLevelDyn");
         pauseAnimation = false;
 
@@ -29,12 +28,15 @@ public class Rise : MonoBehaviour
 
         string[] fileContent = dataFile.text.Split('\n');
         dataArray = new string[fileContent.Length, 2];
+        dateArray = new string[fileContent.Length];
 
         for (var pos = 0; pos < fileContent.Length; pos++)
         {
             var content = fileContent[pos].Split(' ');
             dataArray[pos, 0] = content[0];
             dataArray[pos, 1] = content[1];
+
+            dateArray[pos] = content[0];
         }
 
         InvokeRepeating("Animate", 2.0f, 1);
@@ -54,7 +56,7 @@ public class Rise : MonoBehaviour
             }
 
             var date = dataArray[pos, 0];
-            var seaLevel = dataArray[pos, 1];
+            //var seaLevel = dataArray[pos, 1];
             
             float mappedToRange0_1 = (float.Parse(date.Split('/')[2]) - 2000.0f) / (2150.0f - 2000.0f) * (1.0f - 0.0f) + 0.0f;
             
@@ -124,8 +126,8 @@ public class Rise : MonoBehaviour
     /*
     Keep track of which position/index in the data array is currently shown as sea level and date
     */
-    public void SetCurrentPosition(int currentPos) {
-        pos = currentPos;
+    public void SetCurrentPosition(string dateString) {
+        pos = Array.IndexOf(dateArray, dateString);
     }
     
 }

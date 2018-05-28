@@ -10,6 +10,7 @@ public class Slider : MonoBehaviour
     private float currentLinearMapping = float.NaN;
     private int sliderValue;
     private GameObject dateText;
+    private Rise riseScript;
 
     //-------------------------------------------------
     void Awake()
@@ -19,6 +20,7 @@ public class Slider : MonoBehaviour
             linearMapping = GetComponent<LinearMapping>();
         }
         dateText = GameObject.Find("DateDyn");
+        riseScript = GetComponentInParent<Rise>();
     }
 
 
@@ -35,13 +37,14 @@ public class Slider : MonoBehaviour
             dateText.GetComponent<Text>().text = "";
             dateText.GetComponent<Text>().text = "Year: " + sliderValue;
 
-            GetComponentInParent<Rise>().SetSeaLevelAtDate(getDateString());
+            riseScript.SetSeaLevelAtDate(getDateString());
+            riseScript.SetCurrentPosition(getDateString());
         }
     }
 
     private string getDateString() {
 
-        var dateString = "1/01/" + sliderValue;
+        string dateString = "1/01/" + sliderValue;
         return dateString;
     }
 }

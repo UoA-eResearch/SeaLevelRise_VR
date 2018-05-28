@@ -9,19 +9,18 @@ public class Rise : MonoBehaviour
     private string[,] dataArray;
     private string[] dateArray;
     private GameObject ocean;
-    private string date;
-    private GameObject seaLevelText;
     private int pos = 0;
     public bool pauseAnimation;
     public Button toggleButton;
     public LinearMapping linearMapping;
+    private GameObject slider;
 
 
     void Start()
     {
         ocean = GameObject.Find("Ocean");
-        seaLevelText = GameObject.Find("SeaLevelDyn");
         pauseAnimation = false;
+        slider = linearMapping.transform.parent.gameObject;
 
         //Load sea level data and dates from file and store in data array
         var dataFile = Resources.Load<TextAsset>("Data");
@@ -101,8 +100,8 @@ public class Rise : MonoBehaviour
                 seaLevel = float.Parse(dataArray[position, 1]);
                 ocean.transform.position = new Vector3(0, seaLevel * 0.01F, 0);
 
-                seaLevelText.GetComponent<Text>().text = "";
-                seaLevelText.GetComponent<Text>().text = seaLevel.ToString();
+                slider.GetComponentInChildren<Text>().text = "";
+                slider.GetComponentInChildren<Text>().text = "Date: " + timeString + System.Environment.NewLine + "Sea Level: " + seaLevel.ToString();
             }
             else
             {
@@ -113,12 +112,14 @@ public class Rise : MonoBehaviour
                     seaLevel = float.Parse(dataArray[position, 1]);
                     ocean.transform.position = new Vector3(0, seaLevel * 0.01F, 0);
 
-                    seaLevelText.GetComponent<Text>().text = "";
-                    seaLevelText.GetComponent<Text>().text = seaLevel.ToString();
+                    slider.GetComponentInChildren<Text>().text = "";
+                    slider.GetComponentInChildren<Text>().text = "Date: " + timeString + System.Environment.NewLine + "Sea Level: " + seaLevel.ToString();
 
                     break;
                 }
             }
+
+            
 
         }
     }

@@ -19,6 +19,7 @@ public class Slider : MonoBehaviour
         {
             linearMapping = GetComponent<LinearMapping>();
         }
+
         dateText = GameObject.Find("DateDyn");
         riseScript = GetComponentInParent<Rise>();
     }
@@ -45,6 +46,9 @@ public class Slider : MonoBehaviour
     private string getDateString() {
 
         string dateString = "1/01/" + sliderValue;
+        linearMapping.transform.parent.gameObject.GetComponentInChildren<Text>().text = "";
+        linearMapping.transform.parent.gameObject.GetComponentInChildren<Text>().text = dateString;
+
         return dateString;
     }
 }

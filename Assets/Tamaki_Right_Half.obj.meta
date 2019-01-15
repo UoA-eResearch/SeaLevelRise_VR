@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 9267e1ba722862c43a81e098034ec385
-timeCreated: 1529617195
-licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: default
     100002: default_MeshPart0
@@ -39,10 +37,18 @@ ModelImporter:
     4300006: default_MeshPart3
     4300008: default_MeshPart4
     4300010: default_MeshPart5
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: defaultMat
+    second: {fileID: 2100000, guid: 7b2152233d3218a49bfc9d5bd6ab39c7, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -55,6 +61,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -79,11 +87,15 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

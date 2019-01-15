@@ -14,6 +14,10 @@ public class Rise : MonoBehaviour
     public Button toggleButton;
     public LinearMapping linearMapping;
     private GameObject slider;
+	public GameObject handle;
+	public Transform startPosition;
+	public Transform endPosition;
+	public Text seaLevelText;
 
 
     void Start()
@@ -58,8 +62,8 @@ public class Rise : MonoBehaviour
             //var seaLevel = dataArray[pos, 1];
 
             float mappedToRange0_1 = (float.Parse(date.Split('/')[2]) - 2000.0f) / (2150.0f - 2000.0f) * (1.0f - 0.0f) + 0.0f;
-
             linearMapping.value = mappedToRange0_1;
+			handle.transform.position = Vector3.Lerp(startPosition.position, endPosition.position, linearMapping.value);
 
             pos++;
         }
@@ -100,9 +104,9 @@ public class Rise : MonoBehaviour
                 seaLevel = float.Parse(dataArray[position, 1]);
                 ocean.transform.position = new Vector3(0, seaLevel * 0.01F, 0);
 
-                slider.GetComponentInChildren<Text>().text = "";
-                slider.GetComponentInChildren<Text>().text = "Date: " + timeString + System.Environment.NewLine + "Sea Level: " + seaLevel.ToString();
-            }
+				seaLevelText.text = "";
+				seaLevelText.text = "Date: " + timeString + System.Environment.NewLine + "Sea Level: " + seaLevel.ToString();
+			}
             else
             {
                 var strVal2 = dataArray[position + 1, 0].Split('/');
@@ -112,10 +116,10 @@ public class Rise : MonoBehaviour
                     seaLevel = float.Parse(dataArray[position, 1]);
                     ocean.transform.position = new Vector3(0, seaLevel * 0.01F, 0);
 
-                    slider.GetComponentInChildren<Text>().text = "";
-                    slider.GetComponentInChildren<Text>().text = "Date: " + timeString + System.Environment.NewLine + "Sea Level: " + seaLevel.ToString();
-
-                    break;
+					seaLevelText.text = "";
+					seaLevelText.text = "Date: " + timeString + System.Environment.NewLine + "Sea Level: " + seaLevel.ToString();
+					
+					break;
                 }
             }
 

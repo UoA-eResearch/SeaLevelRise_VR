@@ -11,19 +11,30 @@ public class Rise : MonoBehaviour
     private GameObject ocean;
     private int pos = 0;
     public bool pauseAnimation;
-    public Button toggleButton;
-    public LinearMapping linearMapping;
+	public bool addTide;
+	public bool addStorm;
+	public Button toggleButton;
+	public Button tideButton;
+	public Button stormButton;
+	public LinearMapping linearMapping;
     private GameObject slider;
 	public GameObject handle;
 	public Transform startPosition;
 	public Transform endPosition;
 	public Text seaLevelText;
+	private float tide = 0.0f;
+	private float storm = 0.0f;
 
 
     void Start()
     {
         ocean = GameObject.Find("Ocean");
         pauseAnimation = false;
+		addTide = false;
+
+		ToggleTide();
+		ToggleStorm();
+
         slider = linearMapping.transform.parent.gameObject;
 
         //Load sea level data and dates from file and store in data array
@@ -68,30 +79,77 @@ public class Rise : MonoBehaviour
             pos++;
         }
     }
+	
 
-    /*
-    Pause and Resume automatic animation of sea level rise
-    */
-    public void ToggleBut()
-    {
-        if (pauseAnimation)
-        {
-            pauseAnimation = false;
-            toggleButton.GetComponentInChildren<Text>().text = "";
-            toggleButton.GetComponentInChildren<Text>().text = "Pause Animation";
-        }
-        else
-        {
-            pauseAnimation = true;
-            toggleButton.GetComponentInChildren<Text>().text = "";
-            toggleButton.GetComponentInChildren<Text>().text = "Resume Animation";
-        }
-    }
+	/*
+	Pause and Resume automatic animation of sea level rise
+	*/
+	public void ToggleBut()
+	{
+		if (pauseAnimation)
+		{
+			pauseAnimation = false;
+			toggleButton.GetComponentInChildren<Text>().text = "";
+			toggleButton.GetComponentInChildren<Text>().text = "Pause Animation";
+		}
+		else
+		{
+			pauseAnimation = true;
+			toggleButton.GetComponentInChildren<Text>().text = "";
+			toggleButton.GetComponentInChildren<Text>().text = "Resume Animation";
+		}
+	}
 
-    /*
+
+	/*
+	Add and Remove Tide
+	*/
+	public void ToggleTide()
+	{
+		if (addTide)
+		{
+			tide = 1.949f;
+			addTide = false;
+			tideButton.GetComponentInChildren<Text>().text = "";
+			tideButton.GetComponentInChildren<Text>().text = "Remove Tide";
+		}
+		else
+		{
+			tide = 0.0f;
+			addTide = true;
+			tideButton.GetComponentInChildren<Text>().text = "";
+			tideButton.GetComponentInChildren<Text>().text = "Add Tide";
+		}
+	}
+
+
+	/*
+	Add and Remove Storm Surge
+	*/
+	public void ToggleStorm()
+	{
+		if (addStorm)
+		{
+			storm = 0.45f;
+			addStorm = false;
+			stormButton.GetComponentInChildren<Text>().text = "";
+			stormButton.GetComponentInChildren<Text>().text = "Remove Storm";
+		}
+		else
+		{
+			storm = 0.0f;
+			addStorm = true;
+			stormButton.GetComponentInChildren<Text>().text = "";
+			stormButton.GetComponentInChildren<Text>().text = "Add Storm";
+		}
+	}
+
+
+
+	/*
     Animate the sea level rise automatically
     */
-    public void SetSeaLevelAtDate(string timeString)
+	public void SetSeaLevelAtDate(string timeString)
     {
         float seaLevel = 0.0F;
         for (var position = 0; position < dataArray.GetLength(0); position++)
@@ -102,6 +160,7 @@ public class Rise : MonoBehaviour
             if (position == (dataArray.GetLength(0) - 1) && Int32.Parse(timeString.Split('/')[2]) >= Int32.Parse(strVal1[2]))
             {
                 seaLevel = float.Parse(dataArray[position, 1]);
+				seaLevel = seaLevel + tide + storm;
                 ocean.transform.position = new Vector3(0, seaLevel * 0.01F, 0);
 
 				seaLevelText.text = "";
@@ -114,7 +173,8 @@ public class Rise : MonoBehaviour
                 if (Int32.Parse(strVal1[2]) <= Int32.Parse(splitTime[2]) && Int32.Parse(strVal2[2]) > Int32.Parse(splitTime[2]))
                 {
                     seaLevel = float.Parse(dataArray[position, 1]);
-                    ocean.transform.position = new Vector3(0, seaLevel * 0.01F, 0);
+					seaLevel = seaLevel + tide + storm;
+					ocean.transform.position = new Vector3(0, seaLevel * 0.01F, 0);
 
 					seaLevelText.text = "";
 					seaLevelText.text = "Date: " + timeString + System.Environment.NewLine + "Sea Level: " + seaLevel.ToString();

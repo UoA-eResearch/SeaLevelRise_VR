@@ -10,6 +10,8 @@ public class Slider : MonoBehaviour
     private float currentLinearMapping = float.NaN;
     private int sliderValue;
     private Rise riseScript;
+	private bool prevAddTide;
+	private bool prevAddStorm;
 
     //-------------------------------------------------
     void Awake()
@@ -26,11 +28,14 @@ public class Slider : MonoBehaviour
     //-------------------------------------------------
     void Update()
     {
-        if (currentLinearMapping != linearMapping.value) {
-            currentLinearMapping = linearMapping.value;
+        if (currentLinearMapping != linearMapping.value || riseScript.addTide != prevAddTide  || riseScript.addStorm != prevAddStorm) {
 
-            //Map the new slider value (value between 0 and 1) to a decade in the range 2000 to 2150
-            var mappedToDecade = (currentLinearMapping - 0.0f) / (1.0f - 0.0f) * (2150.0f - 2000.0f) + 2000.0f;
+            currentLinearMapping = linearMapping.value;
+			prevAddTide = riseScript.addTide;
+			prevAddStorm = riseScript.addStorm;
+
+			//Map the new slider value (value between 0 and 1) to a decade in the range 2000 to 2150
+			var mappedToDecade = (currentLinearMapping - 0.0f) / (1.0f - 0.0f) * (2150.0f - 2000.0f) + 2000.0f;
             sliderValue = Mathf.RoundToInt(mappedToDecade / 10) * 10;
 
             riseScript.SetSeaLevelAtDate(getDateString());

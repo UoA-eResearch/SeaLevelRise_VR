@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-using Valve.VR.InteractionSystem;
 
 public class Rise : MonoBehaviour
 {

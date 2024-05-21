@@ -27,25 +27,4 @@ public class PlayerController : MonoBehaviour
         }*/
     }
 
-    void Update()
-    {
-        var leftI = SteamVR_Controller.GetDeviceIndex(SteamVR_Controller.DeviceRelation.Leftmost);
-        var rightI = SteamVR_Controller.GetDeviceIndex(SteamVR_Controller.DeviceRelation.Rightmost);
-        if (leftI == rightI)
-        {
-            // Single Controller
-            rightI = -1;
-        }
-
-        if (leftI != -1)
-        {
-            ViveControl(leftI);
-        }
-
-        if (rightI != -1)
-        {
-            ViveControl(rightI);
-        }
-    }
-
 }

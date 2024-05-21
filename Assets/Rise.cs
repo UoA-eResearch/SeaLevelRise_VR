@@ -15,7 +15,6 @@ public class Rise : MonoBehaviour
 	public Button toggleButton;
 	public Button tideButton;
 	public Button stormButton;
-	public LinearMapping linearMapping;
     private GameObject slider;
 	public GameObject handle;
 	public Transform startPosition;
@@ -33,8 +32,6 @@ public class Rise : MonoBehaviour
 
 		ToggleTide();
 		ToggleStorm();
-
-        slider = linearMapping.transform.parent.gameObject;
 
         //Load sea level data and dates from file and store in data array
         var dataFile = Resources.Load<TextAsset>("Data");
@@ -72,8 +69,8 @@ public class Rise : MonoBehaviour
             //var seaLevel = dataArray[pos, 1];
 
             float mappedToRange0_1 = (float.Parse(date.Split('/')[2]) - 2000.0f) / (2150.0f - 2000.0f) * (1.0f - 0.0f) + 0.0f;
-            linearMapping.value = mappedToRange0_1;
-			handle.transform.position = Vector3.Lerp(startPosition.position, endPosition.position, linearMapping.value);
+            //linearMapping.value = mappedToRange0_1;
+						//handle.transform.position = Vector3.Lerp(startPosition.position, endPosition.position, linearMapping.value);
 
             pos++;
         }

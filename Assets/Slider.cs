@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class Slider : MonoBehaviour
 {
-
-    public LinearMapping linearMapping;
     private float currentLinearMapping = float.NaN;
     private int sliderValue;
     private Rise riseScript;
@@ -15,11 +13,6 @@ public class Slider : MonoBehaviour
     //-------------------------------------------------
     void Awake()
     {
-        if (linearMapping == null)
-        {
-            linearMapping = GetComponent<LinearMapping>();
-        }
-        
         riseScript = GetComponentInParent<Rise>();
     }
 
@@ -27,6 +20,7 @@ public class Slider : MonoBehaviour
     //-------------------------------------------------
     void Update()
     {
+        /*
         if (currentLinearMapping != linearMapping.value || riseScript.addTide != prevAddTide  || riseScript.addStorm != prevAddStorm) {
 
             currentLinearMapping = linearMapping.value;
@@ -40,6 +34,7 @@ public class Slider : MonoBehaviour
             riseScript.SetSeaLevelAtDate(getDateString());
             riseScript.SetCurrentPosition(getDateString());
         }
+        */
     }
 
     private string getDateString() {

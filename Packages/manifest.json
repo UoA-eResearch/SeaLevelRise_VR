@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.meta.xr.sdk.interaction.ovr.samples": "65.0.0",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.ads": "4.4.2",
@@ -14,6 +15,7 @@
     "com.unity.timeline": "1.8.6",
     "com.unity.xr.management": "4.4.1",
     "com.unity.xr.meta-openxr": "2.0.0",
+    "com.unity.xr.oculus": "4.2.0",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",

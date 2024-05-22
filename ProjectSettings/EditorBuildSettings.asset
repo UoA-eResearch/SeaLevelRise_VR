@@ -9,7 +9,11 @@ EditorBuildSettings:
     path: Assets/SeaLevelRiseDevonport.unity
     guid: 10775bd0b5c6c244ca94a5a08305dd1c
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b20b7938f312c264fa0aecbbc7542af9,
+      type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: c79cc44d8ebe5144dbc5a2210d4df194,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: cd90cff5f6cbbad4baf04a639cbb6277,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: b8fd09c8091f1204096eb1887b30ac9b,
       type: 2}

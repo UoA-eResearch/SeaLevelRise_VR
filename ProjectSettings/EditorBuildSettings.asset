@@ -8,13 +8,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SeaLevelRiseDevonport.unity
     guid: 10775bd0b5c6c244ca94a5a08305dd1c
+  - enabled: 0
+    path: Assets/Samples/Meta XR Interaction SDK OVR Samples/65.0.0/Example Scenes/ComprehensiveRigExample.unity
+    guid: 2efe93cb8972cae439bfba2dcd4165f0
+  - enabled: 0
+    path: Assets/Samples/Meta XR Interaction SDK OVR Samples/65.0.0/Example Scenes/RayExamples.unity
+    guid: 1b2d3f90c0f50b94cb910c66c773d00d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b20b7938f312c264fa0aecbbc7542af9,
       type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: d022331dde9b416478c5803b4186bf3c,
+      type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 0b788ac9416be834b9706b5706134414,
+      type: 3}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: c79cc44d8ebe5144dbc5a2210d4df194,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: cd90cff5f6cbbad4baf04a639cbb6277,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: b8fd09c8091f1204096eb1887b30ac9b,
+      type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: e070406e2998c9d4493e3fc402cbf39f,
       type: 2}
   m_UseUCBPForAssetBundles: 0

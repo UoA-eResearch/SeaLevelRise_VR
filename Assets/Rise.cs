@@ -122,6 +122,10 @@ public class Rise : MonoBehaviour
 		SetSeaLevelAtDate((int)slider.value);
 	}
 
+	public void SliderChange() {
+		SetSeaLevelAtDate((int)slider.value);
+	}
+
 	public void SetSeaLevelAtDate(int year)
 	{
 		float seaLevel = 0.0F;

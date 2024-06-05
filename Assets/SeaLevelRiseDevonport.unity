@@ -2316,7 +2316,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 6.700001, y: 50.19995}
-  m_SizeDelta: {x: 100, y: 54.47}
+  m_SizeDelta: {x: 192.26, y: 54.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &579674037
 MonoBehaviour:
@@ -2654,7 +2654,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2000
+  m_text: '2000: 0.12m'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2806,7 +2806,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 41.9, y: -62}
-  m_SizeDelta: {x: 150, y: 40}
+  m_SizeDelta: {x: 184.18, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676981981
 MonoBehaviour:
@@ -3662,15 +3662,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseAnimation: 0
-  addTide: 0
-  addStorm: 0
+  addTide: 1
+  addStorm: 1
   toggleButton: {fileID: 829947375}
   tideButton: {fileID: 834434415}
   stormButton: {fileID: 676981981}
-  handle: {fileID: 1127786023925619}
-  startPosition: {fileID: 4976342616426561}
-  endPosition: {fileID: 4608405249951895}
-  seaLevelText: {fileID: 114202065885636939}
+  slider: {fileID: 2577526}
+  startPosition: {fileID: 332597805}
+  endPosition: {fileID: 805216527}
+  seaLevelText: {fileID: 641342329}
 --- !u!1 &834434413
 GameObject:
   m_ObjectHideFlags: 0
@@ -3708,7 +3708,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 232.8, y: -166}
-  m_SizeDelta: {x: 150, y: 40}
+  m_SizeDelta: {x: 176.5, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &834434415
 MonoBehaviour:
@@ -4093,6 +4093,16 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 4294967263
       objectReference: {fileID: 0}
+    - target: {fileID: 114473266101150724, guid: 126d619cf4daa52469682f85c1378b4a,
+        type: 3}
+      propertyPath: opMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473266101150724, guid: 126d619cf4daa52469682f85c1378b4a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4124,7 +4134,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1102690468}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100004, guid: 126d619cf4daa52469682f85c1378b4a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 999409078}
   m_SourcePrefab: {fileID: 100100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
 --- !u!114 &996238410 stripped
 MonoBehaviour:
@@ -4132,7 +4146,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 996238409}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 999409075}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
@@ -4162,6 +4176,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 996238409}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &999409075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: 126d619cf4daa52469682f85c1378b4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 996238409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &999409078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999409075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7102a3182846c142babdc9718129679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1059749872
 GameObject:
   m_ObjectHideFlags: 0
@@ -4219,7 +4251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Add Tide
+  m_text: Remove Tide
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6054,7 +6086,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Add Storm
+  m_text: Remove Storm
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

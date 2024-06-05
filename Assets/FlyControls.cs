@@ -21,7 +21,7 @@ public class FlyControls : MonoBehaviour
         if (OVRInput.Get(OVRInput.RawButton.RThumbstickUp)) transform.Translate(forward * speed);
         if (OVRInput.Get(OVRInput.RawButton.RThumbstickDown)) transform.Translate(-forward * speed);
 
-        if (ovrHand.GetFingerIsPinching(OVRHand.HandFinger.Index)) transform.Translate(forward * speed);
+        if (ovrHand.GetFingerIsPinching(OVRHand.HandFinger.Max)) transform.Translate(forward * speed);
         if (ovrHand.GetFingerIsPinching(OVRHand.HandFinger.Middle)) transform.Translate(-forward * speed);
         if (ovrHand.GetFingerIsPinching(OVRHand.HandFinger.Ring)) transform.Translate(Vector3.up * speed);
         if (ovrHand.GetFingerIsPinching(OVRHand.HandFinger.Pinky)) transform.Translate(Vector3.down * speed);
